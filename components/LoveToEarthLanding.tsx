@@ -7,13 +7,23 @@ export default function LoveToEarthLanding() {
   const [submittedMessages, setSubmittedMessages] = useState<string[]>([]);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (loveMessage.trim() !== '') {
-      setSubmittedMessages([...submittedMessages, loveMessage]);
-      setLoveMessage('');
-      setShowForm(false);
-    }
-  };
+  e.preventDefault();
+  const badWords = ['địt', 'đ**', 'fuck', 'shit', 'cc', 'cút', 'đmm', 'mẹ mày'];
+  const lowerMsg = loveMessage.toLowerCase();
+
+  const hasBadWord = badWords.some((word) => lowerMsg.includes(word));
+  if (hasBadWord) {
+    alert('Xin hãy dùng ngôn từ tích cực và yêu thương 💚');
+    return;
+  }
+
+  if (loveMessage.trim() !== '') {
+    setSubmittedMessages([...submittedMessages, loveMessage]);
+    setLoveMessage('');
+    setShowForm(false);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-100 via-white to-blue-100 p-4 md:p-10">
