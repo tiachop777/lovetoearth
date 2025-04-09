@@ -43,7 +43,7 @@ export default function LoveToEarthLanding() {
                   value={loveMessage}
                   onChange={(e) => setLoveMessage(e.target.value)}
                   placeholder="Trái Đất ơi, mình yêu bạn..."
-                  className="w-full p-2 rounded-xl border border-gray-300"
+                  className="w-full p-2 rounded-xl border border-gray-300 text-black"
                   rows={3}
                 />
                 <button
